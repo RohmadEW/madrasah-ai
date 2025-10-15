@@ -6,9 +6,9 @@ import { useAtom } from "jotai";
 import { isAuthenticatedAtom } from "@/store/auth";
 
 // Routes that require authentication
-const PROTECTED_ROUTES = ["/home"];
+const PROTECTED_ROUTES = ["/dashboard"];
 
-// Routes that should redirect to home if already authenticated
+// Routes that should redirect to dashboard if already authenticated
 const AUTH_ROUTES = ["/login", "/register"];
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -29,8 +29,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       // Redirect to login if trying to access protected route without auth
       router.push("/login");
     } else if (isAuthRoute && isAuthenticated) {
-      // Redirect to home if already authenticated and trying to access login/register
-      router.push("/home");
+      // Redirect to dashboard if already authenticated and trying to access login/register
+      router.push("/dashboard");
     }
   }, [pathname, isAuthenticated, router]);
 

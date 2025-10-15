@@ -4,7 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**madrasah-ai** is a Next.js 15 application built with TypeScript, React 19, Tailwind CSS 4, and DaisyUI. It uses the App Router architecture introduced in Next.js 13+ and Jotai for state management.
+**Madrasah AI** adalah aplikasi Next.js 15 yang dibangun dengan TypeScript, React 19, Tailwind CSS 4, dan DaisyUI. Aplikasi ini menggunakan App Router architecture dan Jotai untuk state management.
+
+### Tujuan Aplikasi
+
+Madrasah AI adalah platform manajemen pendidikan berbasis AI yang bertujuan untuk meningkatkan kualitas pendidikan madrasah. Platform ini menyediakan fitur-fitur untuk:
+- Manajemen data siswa dan guru
+- Pengelolaan kurikulum dan materi pembelajaran
+- Monitoring dan evaluasi pembelajaran dengan bantuan AI
+- Analisis otomatis perkembangan belajar siswa
+- Rekomendasi metode pembelajaran yang lebih efektif
+- Sistem pelaporan dan dashboard analytics
 
 ## Tech Stack
 
@@ -61,8 +71,10 @@ src/
     favicon.ico     # App favicon
     login/          # Login page route
       page.tsx
-    home/           # Home page route (protected)
-      page.tsx
+    (auth)/         # Route group for authenticated pages
+      layout.tsx    # Auth layout with sidebar and header
+      dashboard/    # Dashboard page (protected)
+        page.tsx
   components/       # Reusable React components
     AuthProvider.tsx # Auth middleware for route protection
   store/            # Jotai state management
@@ -116,18 +128,24 @@ The app uses a custom authentication system with Jotai for state management:
 **AuthProvider** (src/components/AuthProvider.tsx):
 - Client-side route protection middleware
 - Automatically redirects unauthenticated users from protected routes to `/login`
-- Redirects authenticated users from `/login` to `/home`
-- Protected routes defined in `PROTECTED_ROUTES` array (currently: `/home`)
+- Redirects authenticated users from `/login` to `/dashboard`
+- Protected routes defined in `PROTECTED_ROUTES` array (currently: `/dashboard`)
 - Auth routes defined in `AUTH_ROUTES` array (currently: `/login`, `/register`)
 
 **Login Flow**:
 1. User submits credentials on `/login`
-2. On success: Set `isAuthenticatedAtom` and `userAtom`, then redirect to `/home`
+2. On success: Set `isAuthenticatedAtom` and `userAtom`, then redirect to `/dashboard`
 3. On failure: Display error message
 
-**Logout Flow**:
+**Logout Flow** (src/app/(auth)/layout.tsx):
 1. Clear `isAuthenticatedAtom` and `userAtom`
 2. Redirect to `/login`
+
+**Auth Layout** (src/app/(auth)/layout.tsx):
+- Dark theme layout with sidebar and header
+- Sidebar: Logo, user profile, navigation menu, logout button
+- Header: Search bar, mobile menu toggle, notification icons
+- Colors: `#2c3e50` (sidebar), `#34495e` (header)
 
 **Adding New Protected Routes**:
 Update `PROTECTED_ROUTES` array in `src/components/AuthProvider.tsx`
@@ -136,6 +154,7 @@ Update `PROTECTED_ROUTES` array in `src/components/AuthProvider.tsx`
 - Use Tailwind utility classes for styling
 - DaisyUI components are available (button, card, navbar, etc.)
 - Access to both light and dark themes via DaisyUI configuration
+- **Dark Theme Colors**: Use `#2c3e50` and `#34495e` for dark themed pages (login, dashboard)
 - **Responsive Design**: Use Tailwind breakpoints (`sm:`, `md:`, `lg:`) for mobile-first responsive layouts
   - Mobile: base styles
   - Tablet: `sm:` (640px+)
