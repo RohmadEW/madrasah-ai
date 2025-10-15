@@ -54,10 +54,19 @@ pnpm install
 ```
 src/
   app/              # Next.js App Router pages and layouts
-    layout.tsx      # Root layout with metadata
-    page.tsx        # Home page
+    layout.tsx      # Root layout with metadata and Providers wrapper
+    providers.tsx   # Jotai Provider and AuthProvider wrapper
+    page.tsx        # Landing page
     globals.css     # Global styles with Tailwind CSS imports
     favicon.ico     # App favicon
+    login/          # Login page route
+      page.tsx
+    home/           # Home page route (protected)
+      page.tsx
+  components/       # Reusable React components
+    AuthProvider.tsx # Auth middleware for route protection
+  store/            # Jotai state management
+    auth.ts         # Auth atoms (isAuthenticated, user)
 public/             # Static assets (SVG icons)
 ```
 
@@ -94,15 +103,85 @@ Jotai is installed for state management. Use atoms for global state:
 - Import from `jotai`
 - Create atoms with `atom(initialValue)`
 - Use `useAtom`, `useAtomValue`, or `useSetAtom` in client components
+- Use `atomWithStorage` from `jotai/utils` for persistent state (localStorage)
+
+**Auth State** (src/store/auth.ts):
+- `isAuthenticatedAtom`: Boolean atom with localStorage persistence
+- `userAtom`: User object atom with localStorage persistence
+- `authStateAtom`: Derived atom combining both states
+
+### Authentication System
+The app uses a custom authentication system with Jotai for state management:
+
+**AuthProvider** (src/components/AuthProvider.tsx):
+- Client-side route protection middleware
+- Automatically redirects unauthenticated users from protected routes to `/login`
+- Redirects authenticated users from `/login` to `/home`
+- Protected routes defined in `PROTECTED_ROUTES` array (currently: `/home`)
+- Auth routes defined in `AUTH_ROUTES` array (currently: `/login`, `/register`)
+
+**Login Flow**:
+1. User submits credentials on `/login`
+2. On success: Set `isAuthenticatedAtom` and `userAtom`, then redirect to `/home`
+3. On failure: Display error message
+
+**Logout Flow**:
+1. Clear `isAuthenticatedAtom` and `userAtom`
+2. Redirect to `/login`
+
+**Adding New Protected Routes**:
+Update `PROTECTED_ROUTES` array in `src/components/AuthProvider.tsx`
 
 ### Styling Approach
 - Use Tailwind utility classes for styling
 - DaisyUI components are available (button, card, navbar, etc.)
 - Access to both light and dark themes via DaisyUI configuration
+- **Responsive Design**: Use Tailwind breakpoints (`sm:`, `md:`, `lg:`) for mobile-first responsive layouts
+  - Mobile: base styles
+  - Tablet: `sm:` (640px+)
+  - Desktop: `md:` (768px+), `lg:` (1024px+)
+
+**Common DaisyUI Components Used**:
+- `btn`, `btn-primary`, `btn-outline`, `btn-lg`, `btn-md`
+- `card`, `card-body`, `card-title`, `card-actions`
+- `input`, `input-bordered`
+- `navbar`, `dropdown`, `dropdown-end`
+- `fieldset`, `fieldset-legend` (for form inputs)
+- `loading`, `loading-spinner` (for loading states)
+- `alert`, `alert-error`
+- `stats`, `stat`, `stat-value`
+- `hero`, `hero-content`
+- `footer`, `footer-center`
 
 ## Important Notes
 
-- This is a fresh Next.js project bootstrapped with create-next-app
+- This is a Next.js project bootstrapped with create-next-app
 - **Always use pnpm** for package management (not npm or yarn)
 - Image optimization is available via `next/image`
 - Font optimization uses next/font (Geist font family configured)
+- All pages must be wrapped with `Providers` component for Jotai and AuthProvider to work
+- Use `"use client"` directive for pages that need authentication or interactivity
+
+## Development Best Practices
+
+### Forms and User Input
+- Use DaisyUI `fieldset` and `fieldset-legend` for form inputs (instead of form-control/label)
+- Show loading spinner (`loading loading-spinner`) on buttons during async operations
+- Validate inputs before submitting
+- Display error messages using DaisyUI `alert` component
+
+### Responsive Design
+- Always implement mobile-first responsive design
+- Test layouts on multiple screen sizes (mobile, tablet, desktop)
+- Use Tailwind responsive prefixes consistently:
+  ```tsx
+  className="text-sm sm:text-base md:text-lg"
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+  className="px-4 sm:px-6 lg:px-8"
+  ```
+
+### Authentication
+- Protected pages should check auth state from Jotai atoms
+- Always clear auth state on logout
+- Use `router.push()` for navigation after login/logout
+- Display user info from `userAtom` in UI (navbar, profile, etc.)

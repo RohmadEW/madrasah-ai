@@ -22,9 +22,11 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-base-200">
       {/* Navbar */}
-      <div className="navbar bg-base-100 shadow-lg">
+      <div className="navbar bg-base-100 shadow-lg px-4">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">Madrasah AI</a>
+          <a className="btn btn-ghost text-lg sm:text-xl normal-case">
+            Madrasah AI
+          </a>
         </div>
         <div className="flex-none gap-2">
           <div className="dropdown dropdown-end">
@@ -33,8 +35,8 @@ export default function HomePage() {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full bg-primary text-primary-content flex items-center justify-center">
-                <span className="text-lg font-semibold">
+              <div className="w-8 sm:w-10 rounded-full bg-primary text-primary-content flex items-center justify-center">
+                <span className="text-base sm:text-lg font-semibold">
                   {user?.name?.charAt(0).toUpperCase() || "U"}
                 </span>
               </div>
@@ -46,7 +48,7 @@ export default function HomePage() {
               <li>
                 <a className="justify-between">
                   Profile
-                  <span className="badge">New</span>
+                  <span className="badge badge-sm">New</span>
                 </a>
               </li>
               <li>
@@ -61,21 +63,21 @@ export default function HomePage() {
       </div>
 
       {/* Hero Section */}
-      <div className="hero min-h-[calc(100vh-4rem)] bg-base-200">
+      <div className="hero min-h-[calc(100vh-4rem)] bg-base-200 px-4">
         <div className="hero-content text-center">
           <div className="max-w-2xl">
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               Selamat Datang di Madrasah AI{user?.name && `, ${user.name}`}
             </h1>
-            <p className="py-6 text-lg">
+            <p className="py-4 sm:py-6 text-base sm:text-lg px-4">
               Platform pembelajaran berbasis AI untuk meningkatkan kualitas
               pendidikan. Mulai perjalanan belajar Anda dengan teknologi terkini.
             </p>
-            <div className="flex gap-4 justify-center">
-              <button className="btn btn-primary btn-lg">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <button className="btn btn-primary btn-md sm:btn-lg">
                 Mulai Belajar
               </button>
-              <button className="btn btn-outline btn-lg">
+              <button className="btn btn-outline btn-md sm:btn-lg">
                 Lihat Kursus
               </button>
             </div>
@@ -84,8 +86,8 @@ export default function HomePage() {
       </div>
 
       {/* Stats Section */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="stats stats-vertical lg:stats-horizontal shadow w-full">
+      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+        <div className="stats stats-vertical sm:stats-horizontal shadow w-full">
           <div className="stat">
             <div className="stat-figure text-primary">
               <svg
@@ -152,18 +154,18 @@ export default function HomePage() {
       </div>
 
       {/* Cards Section */}
-      <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">
+      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
           Kursus Populer
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Card 1 */}
           <div className="card bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-              <div className="w-full h-48 bg-primary rounded-xl flex items-center justify-center">
+            <figure className="px-6 sm:px-10 pt-6 sm:pt-10">
+              <div className="w-full h-40 sm:h-48 bg-primary rounded-xl flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-24 w-24 text-primary-content"
+                  className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 text-primary-content"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -193,11 +195,11 @@ export default function HomePage() {
 
           {/* Card 2 */}
           <div className="card bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-              <div className="w-full h-48 bg-secondary rounded-xl flex items-center justify-center">
+            <figure className="px-6 sm:px-10 pt-6 sm:pt-10">
+              <div className="w-full h-40 sm:h-48 bg-secondary rounded-xl flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-24 w-24 text-secondary-content"
+                  className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 text-secondary-content"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -225,11 +227,11 @@ export default function HomePage() {
 
           {/* Card 3 */}
           <div className="card bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-              <div className="w-full h-48 bg-accent rounded-xl flex items-center justify-center">
+            <figure className="px-6 sm:px-10 pt-6 sm:pt-10">
+              <div className="w-full h-40 sm:h-48 bg-accent rounded-xl flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-24 w-24 text-accent-content"
+                  className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 text-accent-content"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -258,14 +260,18 @@ export default function HomePage() {
       </div>
 
       {/* Footer */}
-      <footer className="footer footer-center bg-base-300 text-base-content p-10">
+      <footer className="footer footer-center bg-base-300 text-base-content p-6 sm:p-10">
         <aside>
-          <p className="font-bold text-xl">Madrasah AI</p>
-          <p>Platform pembelajaran berbasis AI untuk pendidikan Islam</p>
-          <p>Copyright © 2025 - All right reserved</p>
+          <p className="font-bold text-lg sm:text-xl">Madrasah AI</p>
+          <p className="text-sm sm:text-base px-4">
+            Platform pembelajaran berbasis AI untuk pendidikan Islam
+          </p>
+          <p className="text-xs sm:text-sm">
+            Copyright © 2025 - All right reserved
+          </p>
         </aside>
         <nav>
-          <div className="grid grid-flow-col gap-4">
+          <div className="grid grid-cols-2 sm:grid-flow-col gap-2 sm:gap-4 text-sm sm:text-base">
             <a className="link link-hover">Tentang Kami</a>
             <a className="link link-hover">Kontak</a>
             <a className="link link-hover">Kebijakan Privasi</a>
