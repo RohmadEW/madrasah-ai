@@ -65,9 +65,7 @@ export default function AuthLayout({
             {user?.name?.charAt(0).toUpperCase() || "U"}
           </div>
           <div className="text-center">
-            <h3 className="font-semibold text-base">
-              {user?.name || "User"}
-            </h3>
+            <h3 className="font-semibold text-base">{user?.name || "User"}</h3>
             <p className="text-sm text-gray-400">Administrator</p>
           </div>
         </div>
@@ -142,9 +140,9 @@ export default function AuthLayout({
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-h-screen">
+      <div className="flex-1 flex flex-col h-screen">
         {/* Header */}
-        <header className="bg-[#34495e] text-white shadow-lg sticky top-0 z-40">
+        <header className="bg-[#34495e] text-white shadow-lg z-40 flex-shrink-0">
           <div className="flex items-center justify-between px-4 py-3">
             {/* Mobile Menu Button */}
             <button
@@ -264,7 +262,7 @@ export default function AuthLayout({
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 p-6">{children}</main>
+        <main className="flex-1 p-6 overflow-y-auto">{children}</main>
       </div>
 
       {/* Mobile Sidebar Overlay */}
