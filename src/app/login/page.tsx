@@ -13,6 +13,7 @@ export default function LoginPage() {
   const [formData, setFormData] = useState({
     email: "admin@gmail.com",
     password: "admin123",
+    role: "siswa",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -24,24 +25,25 @@ export default function LoginPage() {
 
     // Simulate API call
     setTimeout(() => {
-      if (formData.email && formData.password) {
+      if (formData.email && formData.password && formData.role) {
         // Set auth state
         setIsAuthenticated(true);
         setUser({
           email: formData.email,
           name: "Admin User",
+          role: formData.role,
         });
 
         // Success - redirect to dashboard
         router.push("/dashboard");
       } else {
-        setError("Email dan password harus diisi");
+        setError("Semua field harus diisi");
         setIsLoading(false);
       }
     }, 1000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -73,6 +75,25 @@ export default function LoginPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Role Selection */}
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                Login Sebagai
+              </label>
+              <select
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+                className="w-full px-4 py-3 bg-[#2c3e50] border border-[#3d5266] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent transition-all appearance-none cursor-pointer"
+                required
+              >
+                <option value="siswa" className="bg-[#2c3e50]">👨‍🎓 Siswa</option>
+                <option value="guru" className="bg-[#2c3e50]">👨‍🏫 Guru</option>
+                <option value="wali_kelas" className="bg-[#2c3e50]">👨‍💼 Wali Kelas</option>
+                <option value="kepala_sekolah" className="bg-[#2c3e50]">👔 Kepala Sekolah</option>
+              </select>
+            </div>
+
             {/* Email Input */}
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">

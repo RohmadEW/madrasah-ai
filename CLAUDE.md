@@ -119,8 +119,9 @@ Jotai is installed for state management. Use atoms for global state:
 
 **Auth State** (src/store/auth.ts):
 - `isAuthenticatedAtom`: Boolean atom with localStorage persistence
-- `userAtom`: User object atom with localStorage persistence
+- `userAtom`: User object atom with localStorage persistence (includes email, name, role)
 - `authStateAtom`: Derived atom combining both states
+- **User Roles**: "siswa" | "guru" | "wali_kelas" | "kepala_sekolah" (stored in user.role)
 
 ### Authentication System
 The app uses a custom authentication system with Jotai for state management:
@@ -146,6 +147,15 @@ The app uses a custom authentication system with Jotai for state management:
 - Sidebar: Logo, user profile, navigation menu, logout button
 - Header: Search bar, mobile menu toggle, notification icons
 - Colors: `#2c3e50` (sidebar), `#34495e` (header)
+- **Dynamic Menu**: Menu berubah otomatis berdasarkan role user
+
+**Role-Based Navigation**:
+Menu sidebar dinamis berdasarkan role yang dipilih saat login:
+- **Siswa**: Dashboard, Chat Interaktif, Latihan Adaptif, AI Mentor, AI Tutor, dll
+- **Guru**: Generator RPP, Generator Soal, Penilaian Otomatis, AI Asisten Guru, dll
+- **Wali Kelas**: Dashboard Kepala, Profiling Guru, Rekomendasi Kebijakan, Management Assistant, dll
+- **Kepala Sekolah**: Dashboard Kepala, Management Assistant, Strategi Kurikulum, Analisis Kemajuan, dll
+- **Orang Tua**: Portal Orang Tua, Laporan Perkembangan, Parent Insight, Career Assistant
 
 **Adding New Protected Routes**:
 Update `PROTECTED_ROUTES` array in `src/components/AuthProvider.tsx`

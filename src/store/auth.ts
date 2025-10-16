@@ -5,6 +5,7 @@ import { atomWithStorage } from "jotai/utils";
 export interface User {
   email: string;
   name?: string;
+  role?: "siswa" | "guru" | "wali_kelas" | "kepala_sekolah" | "orang_tua";
 }
 
 // Auth state atoms

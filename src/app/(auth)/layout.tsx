@@ -22,26 +22,242 @@ export default function AuthLayout({
     router.push("/login");
   };
 
-  const navigationItems = [
-    {
-      title: "Navigation",
-      items: [
-        { name: "Dashboard", icon: "📊", href: "/dashboard", active: true },
-        { name: "Layouts", icon: "📐", href: "#" },
-        { name: "Widgets", icon: "🧩", href: "#" },
+  // Menu item type
+  type MenuItem = {
+    name: string;
+    icon: string;
+    href: string;
+    active?: boolean;
+  };
+
+  type MenuSection = {
+    title: string;
+    items: MenuItem[];
+  };
+
+  // Menu berdasarkan role
+  const getNavigationByRole = () => {
+    const role = user?.role || "siswa";
+
+    const menuConfig: Record<string, MenuSection[]> = {
+      guru: [
+        {
+          title: "Pembelajaran",
+          items: [
+            { name: "Dashboard AI", icon: "📊", href: "/dashboard", active: true },
+            { name: "Generator RPP", icon: "📝", href: "/rpp-generator" },
+            { name: "Generator Soal", icon: "📋", href: "/soal-generator" },
+            { name: "Penilaian Otomatis", icon: "✅", href: "/penilaian-otomatis" },
+            { name: "Ringkasan & Notulen", icon: "📑", href: "/ringkasan-notulen" },
+          ],
+        },
+        {
+          title: "Asisten AI",
+          items: [
+            { name: "Asisten Jadwal", icon: "📅", href: "/asisten-jadwal" },
+            { name: "AI Asisten Guru", icon: "🤖", href: "/ai-asisten" },
+            { name: "Voice Assistant", icon: "🎤", href: "/voice-assistant" },
+          ],
+        },
+        {
+          title: "Materi & Konten",
+          items: [
+            { name: "Rekomendasi Materi", icon: "📚", href: "/rekomendasi-materi" },
+            { name: "Penjelasan Buku/Gambar", icon: "📖", href: "/penjelasan-konten" },
+            { name: "Simulasi Virtual", icon: "🎮", href: "/simulasi-virtual" },
+          ],
+        },
+        {
+          title: "Analisis & Laporan",
+          items: [
+            { name: "Analisis Kemajuan", icon: "📈", href: "/analisis-kemajuan" },
+            { name: "Emotional Support", icon: "💚", href: "/emotional-support" },
+            { name: "Strategi Kurikulum", icon: "🎯", href: "/strategi-kurikulum" },
+          ],
+        },
+        {
+          title: "Integrasi",
+          items: [
+            { name: "Integrasi DAPODIK", icon: "🔗", href: "/integrasi-dapodik" },
+            { name: "Komunikasi Ortu", icon: "💬", href: "/komunikasi-ortu" },
+            { name: "Laporan Perkembangan", icon: "📊", href: "/laporan-perkembangan" },
+          ],
+        },
       ],
-    },
-    {
-      title: "Components",
-      items: [
-        { name: "UI Elements", icon: "🎨", href: "#" },
-        { name: "Forms", icon: "📝", href: "#" },
-        { name: "Tables", icon: "📋", href: "#" },
-        { name: "Charts", icon: "📈", href: "#" },
-        { name: "Miscellaneous", icon: "⚙️", href: "#" },
+      wali_kelas: [
+        {
+          title: "Dashboard",
+          items: [
+            { name: "Dashboard AI", icon: "📊", href: "/dashboard", active: true },
+            { name: "Dashboard Kepala", icon: "👔", href: "/dashboard-kepala" },
+          ],
+        },
+        {
+          title: "Manajemen Kelas",
+          items: [
+            { name: "Generator RPP", icon: "📝", href: "/rpp-generator" },
+            { name: "Generator Soal", icon: "📋", href: "/soal-generator" },
+            { name: "Penilaian Otomatis", icon: "✅", href: "/penilaian-otomatis" },
+            { name: "Ringkasan & Notulen", icon: "📑", href: "/ringkasan-notulen" },
+          ],
+        },
+        {
+          title: "Monitoring & Analisis",
+          items: [
+            { name: "Asisten Jadwal", icon: "📅", href: "/asisten-jadwal" },
+            { name: "Profiling Guru", icon: "👨‍🏫", href: "/profiling-guru" },
+            { name: "Analisis Kemajuan", icon: "📈", href: "/analisis-kemajuan" },
+            { name: "Rekomendasi Kebijakan", icon: "💡", href: "/rekomendasi-kebijakan" },
+          ],
+        },
+        {
+          title: "Komunikasi",
+          items: [
+            { name: "Komunikasi Ortu", icon: "💬", href: "/komunikasi-ortu" },
+            { name: "Parent Insight", icon: "👨‍👩‍👧", href: "/parent-insight" },
+            { name: "Portal Orang Tua", icon: "🌐", href: "/portal-ortu" },
+            { name: "Laporan Perkembangan", icon: "📊", href: "/laporan-perkembangan" },
+          ],
+        },
+        {
+          title: "AI Tools",
+          items: [
+            { name: "AI Mentor", icon: "🎓", href: "/ai-mentor" },
+            { name: "Emotional Support", icon: "💚", href: "/emotional-support" },
+            { name: "Gamifikasi", icon: "🎮", href: "/gamifikasi" },
+            { name: "Career Assistant", icon: "💼", href: "/career-assistant" },
+            { name: "Management Assistant", icon: "⚙️", href: "/management-assistant" },
+          ],
+        },
+        {
+          title: "Integrasi",
+          items: [
+            { name: "Integrasi DAPODIK", icon: "🔗", href: "/integrasi-dapodik" },
+          ],
+        },
       ],
-    },
-  ];
+      siswa: [
+        {
+          title: "Pembelajaran",
+          items: [
+            { name: "Dashboard", icon: "📊", href: "/dashboard", active: true },
+            { name: "Penilaian Otomatis", icon: "✅", href: "/penilaian-otomatis" },
+            { name: "Asisten Jadwal", icon: "📅", href: "/asisten-jadwal" },
+          ],
+        },
+        {
+          title: "AI Learning",
+          items: [
+            { name: "Chat Interaktif", icon: "💬", href: "/chat-interaktif" },
+            { name: "Latihan Adaptif", icon: "📝", href: "/latihan-adaptif" },
+            { name: "Penjelasan Buku/Gambar", icon: "📖", href: "/penjelasan-konten" },
+            { name: "Simulasi Virtual", icon: "🎮", href: "/simulasi-virtual" },
+          ],
+        },
+        {
+          title: "Asisten Pribadi",
+          items: [
+            { name: "AI Mentor", icon: "🎓", href: "/ai-mentor" },
+            { name: "Analisis Kemajuan", icon: "📈", href: "/analisis-kemajuan" },
+            { name: "Rekomendasi Materi", icon: "📚", href: "/rekomendasi-materi" },
+            { name: "AI Tutor", icon: "🤖", href: "/ai-tutor" },
+          ],
+        },
+        {
+          title: "Tools Belajar",
+          items: [
+            { name: "Pembelajaran Bahasa", icon: "🌍", href: "/pembelajaran-bahasa" },
+            { name: "AI Penulis", icon: "✍️", href: "/ai-penulis" },
+            { name: "Kreativitas AI", icon: "🎨", href: "/kreativitas-ai" },
+            { name: "Gamifikasi", icon: "🎮", href: "/gamifikasi" },
+          ],
+        },
+        {
+          title: "Support",
+          items: [
+            { name: "AI Companion", icon: "🤝", href: "/ai-companion" },
+            { name: "Career Assistant", icon: "💼", href: "/career-assistant" },
+            { name: "Emotional Support", icon: "💚", href: "/emotional-support" },
+            { name: "Voice Assistant", icon: "🎤", href: "/voice-assistant" },
+          ],
+        },
+        {
+          title: "Integrasi",
+          items: [
+            { name: "Integrasi DAPODIK", icon: "🔗", href: "/integrasi-dapodik" },
+          ],
+        },
+      ],
+      orang_tua: [
+        {
+          title: "Monitoring",
+          items: [
+            { name: "Dashboard", icon: "📊", href: "/dashboard", active: true },
+            { name: "Komunikasi Ortu", icon: "💬", href: "/komunikasi-ortu" },
+            { name: "Portal Orang Tua", icon: "🌐", href: "/portal-ortu" },
+          ],
+        },
+        {
+          title: "Laporan & Analisis",
+          items: [
+            { name: "Laporan Perkembangan", icon: "📊", href: "/laporan-perkembangan" },
+            { name: "Analisis Kemajuan", icon: "📈", href: "/analisis-kemajuan" },
+            { name: "Parent Insight", icon: "👨‍👩‍👧", href: "/parent-insight" },
+          ],
+        },
+        {
+          title: "Support",
+          items: [
+            { name: "Career Assistant", icon: "💼", href: "/career-assistant" },
+            { name: "Integrasi DAPODIK", icon: "🔗", href: "/integrasi-dapodik" },
+          ],
+        },
+      ],
+      kepala_sekolah: [
+        {
+          title: "Dashboard",
+          items: [
+            { name: "Dashboard AI", icon: "📊", href: "/dashboard", active: true },
+            { name: "Dashboard Kepala", icon: "👔", href: "/dashboard-kepala" },
+          ],
+        },
+        {
+          title: "Manajemen",
+          items: [
+            { name: "Ringkasan & Notulen", icon: "📑", href: "/ringkasan-notulen" },
+            { name: "Profiling Guru", icon: "👨‍🏫", href: "/profiling-guru" },
+            { name: "Rekomendasi Kebijakan", icon: "💡", href: "/rekomendasi-kebijakan" },
+            { name: "Management Assistant", icon: "⚙️", href: "/management-assistant" },
+          ],
+        },
+        {
+          title: "Analisis & Strategi",
+          items: [
+            { name: "Analisis Kemajuan", icon: "📈", href: "/analisis-kemajuan" },
+            { name: "Strategi Kurikulum", icon: "🎯", href: "/strategi-kurikulum" },
+            { name: "Gamifikasi", icon: "🎮", href: "/gamifikasi" },
+          ],
+        },
+        {
+          title: "Komunikasi",
+          items: [
+            { name: "Laporan Perkembangan", icon: "📊", href: "/laporan-perkembangan" },
+            { name: "Asisten Jadwal", icon: "📅", href: "/asisten-jadwal" },
+          ],
+        },
+        {
+          title: "Integrasi",
+          items: [
+            { name: "Integrasi DAPODIK", icon: "🔗", href: "/integrasi-dapodik" },
+          ],
+        },
+      ],
+    };
+
+    return menuConfig[role] || menuConfig.siswa;
+  };
+
+  const navigationItems = getNavigationByRole();
 
   return (
     <div className="min-h-screen bg-base-200 flex">
@@ -66,7 +282,15 @@ export default function AuthLayout({
           </div>
           <div className="text-center">
             <h3 className="font-semibold text-base">{user?.name || "User"}</h3>
-            <p className="text-sm text-gray-400">Administrator</p>
+            <p className="text-sm text-gray-400 capitalize">
+              {user?.role === "wali_kelas"
+                ? "Wali Kelas"
+                : user?.role === "kepala_sekolah"
+                ? "Kepala Sekolah"
+                : user?.role === "orang_tua"
+                ? "Orang Tua"
+                : user?.role || "Siswa"}
+            </p>
           </div>
         </div>
 
@@ -143,11 +367,11 @@ export default function AuthLayout({
       <div className="flex-1 flex flex-col h-screen">
         {/* Header */}
         <header className="bg-[#34495e] text-white shadow-lg z-40 flex-shrink-0">
-          <div className="flex items-center justify-between px-4 py-3">
+          <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6 py-3">
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-[#2c3e50]"
+              className="lg:hidden p-2 rounded-lg hover:bg-[#2c3e50] flex-shrink-0"
             >
               <svg
                 className="w-6 h-6"
@@ -164,9 +388,9 @@ export default function AuthLayout({
               </svg>
             </button>
 
-            {/* Search Bar */}
-            <div className="flex-1 max-w-xl mx-4">
-              <div className="relative">
+            {/* Search Bar - Hidden on mobile, visible on tablet+ */}
+            <div className="hidden md:flex flex-1 max-w-xl mx-4">
+              <div className="relative w-full">
                 <input
                   type="text"
                   placeholder="Type for search . . ."
@@ -176,10 +400,28 @@ export default function AuthLayout({
             </div>
 
             {/* Header Actions */}
-            <div className="flex items-center gap-2">
-              <button className="p-2 rounded-lg hover:bg-[#2c3e50] relative">
+            <div className="flex items-center gap-1 sm:gap-2 ml-auto md:ml-0">
+              {/* Search Button - Mobile Only */}
+              <button className="md:hidden p-2 rounded-lg hover:bg-[#2c3e50]">
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+
+              {/* Grid - Hidden on small mobile */}
+              <button className="hidden sm:block p-2 rounded-lg hover:bg-[#2c3e50]">
+                <svg
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -193,10 +435,11 @@ export default function AuthLayout({
                 </svg>
               </button>
 
+              {/* Notification */}
               <button className="p-2 rounded-lg hover:bg-[#2c3e50] relative">
                 <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -210,9 +453,10 @@ export default function AuthLayout({
                 </svg>
               </button>
 
-              <button className="p-2 rounded-lg hover:bg-[#2c3e50]">
+              {/* Profile - Hidden on small mobile */}
+              <button className="hidden sm:block p-2 rounded-lg hover:bg-[#2c3e50]">
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -226,7 +470,8 @@ export default function AuthLayout({
                 </svg>
               </button>
 
-              <button className="p-2 rounded-lg hover:bg-[#2c3e50]">
+              {/* Theme Toggle - Hidden on mobile */}
+              <button className="hidden lg:block p-2 rounded-lg hover:bg-[#2c3e50]">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -242,9 +487,10 @@ export default function AuthLayout({
                 </svg>
               </button>
 
+              {/* More Menu */}
               <button className="p-2 rounded-lg hover:bg-[#2c3e50]">
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
