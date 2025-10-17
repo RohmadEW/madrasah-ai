@@ -1,7 +1,7 @@
 "use client";
 
 import { atom, useAtomValue, useSetAtom, useAtom } from "jotai";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 type Message = {
   id: number;
@@ -290,6 +290,17 @@ export default function AiMentorPage() {
   const quickPrompts = useAtomValue(quickPromptAtom);
   const [conversation] = useAtom(conversationAtom);
   const triggerPrompt = useSetAtom(conversationResponderAtom);
+  const chatContainerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const container = chatContainerRef.current;
+    if (!container) return;
+
+    container.scrollTo({
+      top: container.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [conversation]);
 
   const moodBadge = useMemo(() => {
     if (mood.toLowerCase().includes("super")) return "bg-emerald-100 text-emerald-700";
@@ -372,7 +383,7 @@ export default function AiMentorPage() {
               <span className="text-sm font-medium text-emerald-600 dark:text-emerald-300">{celebration}</span>
             </div>
 
-            <div className="relative max-h-[380px] space-y-4 overflow-y-auto pr-2">
+            <div ref={chatContainerRef} className="relative max-h-[380px] space-y-4 overflow-y-auto pr-2">
               {conversation.map((message) => (
                 <div
                   key={message.id}
