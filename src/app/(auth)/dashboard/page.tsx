@@ -155,15 +155,15 @@ function DashboardSiswa() {
   };
 
   return (
-    <div>
+    <div className="space-y-8">
       {/* Dashboard Header */}
-      <div className="mb-8 relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+      <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg dark:bg-gray-800">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16"></div>
-        <div className="relative p-8">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+        <div className="relative p-6 sm:p-8">
+          <div className="mb-6 flex flex-col gap-4 sm:mb-4 sm:flex-row sm:items-center sm:gap-6">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-16 sm:w-16">
               <svg
-                className="w-8 h-8 text-white"
+                className="h-7 w-7 text-white sm:h-8 sm:w-8"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -176,11 +176,11 @@ function DashboardSiswa() {
                 />
               </svg>
             </div>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+            <div className="text-left">
+              <h1 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
                 Dashboard Siswa
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 mt-1">
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-300 sm:text-base">
                 Selamat Datang di Portal Pembelajaran AI
               </p>
             </div>
@@ -191,15 +191,15 @@ function DashboardSiswa() {
       <DemoNotice />
 
       {/* Stats Cards untuk Siswa */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {/* Nilai Rata-rata */}
-        <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+        <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300"></div>
-          <div className="relative p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+          <div className="relative p-5 sm:p-6">
+            <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14">
                 <svg
-                  className="w-7 h-7 text-white"
+                  className="h-6 w-6 text-white sm:h-7 sm:w-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -212,22 +212,22 @@ function DashboardSiswa() {
                   />
                 </svg>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-left sm:text-right">
+                <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                   Nilai Rata-rata
                 </p>
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                <h3 className="mt-1 text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
                   85.5
                 </h3>
               </div>
             </div>
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+            <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left text-xs text-gray-500 dark:border-gray-700 dark:text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+              <span>
                 Semester Ini
               </span>
-              <div className="flex items-center text-green-500 text-xs font-medium">
+              <div className="flex items-center text-xs font-medium text-green-500 sm:justify-end">
                 <svg
-                  className="w-4 h-4 mr-1"
+                  className="mr-1 h-4 w-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -246,13 +246,13 @@ function DashboardSiswa() {
         </div>
 
         {/* Tugas Aktif */}
-        <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+        <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300"></div>
-          <div className="relative p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+          <div className="relative p-5 sm:p-6">
+            <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14">
                 <svg
-                  className="w-7 h-7 text-white"
+                  className="h-6 w-6 text-white sm:h-7 sm:w-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -265,20 +265,20 @@ function DashboardSiswa() {
                   />
                 </svg>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-left sm:text-right">
+                <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                   Tugas Aktif
                 </p>
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                <h3 className="mt-1 text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
                   5
                 </h3>
               </div>
             </div>
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+            <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left text-xs text-gray-500 dark:border-gray-700 dark:text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+              <span>
                 Deadline Minggu Ini
               </span>
-              <div className="flex items-center text-red-500 text-xs font-medium">
+              <div className="flex items-center text-xs font-medium text-red-500 sm:justify-end">
                 3 Urgent
               </div>
             </div>
@@ -286,13 +286,13 @@ function DashboardSiswa() {
         </div>
 
         {/* Streak Belajar */}
-        <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+        <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300"></div>
-          <div className="relative p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+          <div className="relative p-5 sm:p-6">
+            <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14">
                 <svg
-                  className="w-7 h-7 text-white"
+                  className="h-6 w-6 text-white sm:h-7 sm:w-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -311,20 +311,20 @@ function DashboardSiswa() {
                   />
                 </svg>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-left sm:text-right">
+                <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                   Streak Belajar
                 </p>
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                <h3 className="mt-1 text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
                   15
                 </h3>
               </div>
             </div>
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+            <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left text-xs text-gray-500 dark:border-gray-700 dark:text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+              <span>
                 Hari Berturut-turut
               </span>
-              <div className="flex items-center text-orange-500 text-xs font-medium">
+              <div className="flex items-center text-xs font-medium text-orange-500 sm:justify-end">
                 🔥 On Fire!
               </div>
             </div>
@@ -332,13 +332,13 @@ function DashboardSiswa() {
         </div>
 
         {/* Poin Gamifikasi */}
-        <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+        <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300"></div>
-          <div className="relative p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+          <div className="relative p-5 sm:p-6">
+            <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14">
                 <svg
-                  className="w-7 h-7 text-white"
+                  className="h-6 w-6 text-white sm:h-7 sm:w-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -351,20 +351,20 @@ function DashboardSiswa() {
                   />
                 </svg>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-left sm:text-right">
+                <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                   Poin Belajar
                 </p>
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                <h3 className="mt-1 text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
                   1,250
                 </h3>
               </div>
             </div>
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+            <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left text-xs text-gray-500 dark:border-gray-700 dark:text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+              <span>
                 Level 12
               </span>
-              <div className="flex items-center text-blue-500 text-xs font-medium">
+              <div className="flex items-center text-xs font-medium text-blue-500 sm:justify-end">
                 +50 Hari Ini
               </div>
             </div>
@@ -373,33 +373,33 @@ function DashboardSiswa() {
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Progress Nilai Chart - 2 kolom */}
-        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="rounded-2xl bg-white p-5 shadow-lg dark:bg-gray-800 sm:p-6 lg:col-span-2">
+          <h3 className="mb-4 text-lg font-bold text-gray-800 dark:text-white sm:text-xl">
             Progress Nilai per Mata Pelajaran
           </h3>
-          <div style={{ height: "300px" }}>
+          <div className="h-60 sm:h-72 lg:h-80">
             <Line data={nilaiProgressData} options={chartOptions} />
           </div>
         </div>
 
         {/* Status Tugas Chart - 1 kolom */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="rounded-2xl bg-white p-5 shadow-lg dark:bg-gray-800 sm:p-6">
+          <h3 className="mb-4 text-lg font-bold text-gray-800 dark:text-white sm:text-xl">
             Status Tugas
           </h3>
-          <div style={{ height: "300px" }}>
+          <div className="h-60 sm:h-72 lg:h-80">
             <Doughnut data={tugasStatusData} options={chartOptions} />
           </div>
         </div>
       </div>
 
       {/* Jadwal Hari Ini & Tugas Mendesak */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Jadwal Kelas Hari Ini */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Jadwal Kelas Hari Ini
           </h3>
           <div className="overflow-x-auto">
@@ -491,8 +491,8 @@ function DashboardSiswa() {
         </div>
 
         {/* Tugas Mendesak */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Tugas Mendesak
           </h3>
           <div className="space-y-3">
@@ -561,12 +561,12 @@ function DashboardSiswa() {
       </div>
 
       {/* AI Tips */}
-      <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16"></div>
-        <div className="relative p-8 flex items-start gap-6">
-          <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+      <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg dark:bg-gray-800">
+        <div className="absolute top-0 right-0 h-28 w-28 -mr-16 -mt-16 rounded-full bg-gradient-to-br from-green-400 to-blue-500 opacity-10"></div>
+        <div className="relative flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:gap-6 sm:p-8">
+          <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-16 sm:w-16">
             <svg
-              className="w-8 h-8 text-white"
+              className="h-7 w-7 text-white sm:h-8 sm:w-8"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -579,16 +579,16 @@ function DashboardSiswa() {
               />
             </svg>
           </div>
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-3">
+          <div className="flex-1 text-left">
+            <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
               <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
                 Rekomendasi AI Hari Ini
               </h3>
-              <span className="text-xs bg-gradient-to-r from-green-400 to-blue-500 text-white px-3 py-1.5 rounded-full font-medium shadow-sm">
+              <span className="inline-flex w-max items-center justify-center rounded-full bg-gradient-to-r from-green-400 to-blue-500 px-3 py-1 text-xs font-medium text-white shadow-sm">
                 ✨ Untuk Kamu
               </span>
             </div>
-            <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+            <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base">
               Berdasarkan analisis perkembangan belajarmu, kami merekomendasikan
               untuk fokus pada materi Matematika bab Fungsi. Kamu bisa
               menggunakan fitur AI Tutor untuk bimbingan lebih lanjut dan
@@ -647,15 +647,15 @@ function DashboardGuru() {
   };
 
   return (
-    <div>
+    <div className="space-y-8">
       {/* Dashboard Header */}
-      <div className="mb-8 relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+      <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg dark:bg-gray-800">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16"></div>
-        <div className="relative p-8">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+        <div className="relative p-6 sm:p-8">
+          <div className="mb-6 flex flex-col gap-4 sm:mb-4 sm:flex-row sm:items-center sm:gap-6">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-16 sm:w-16">
               <svg
-                className="w-8 h-8 text-white"
+                className="h-7 w-7 text-white sm:h-8 sm:w-8"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -669,10 +669,10 @@ function DashboardGuru() {
               </svg>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+              <h1 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
                 Dashboard Guru
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 mt-1">
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-300 sm:text-base">
                 Portal Pengajaran & Analisis AI
               </p>
             </div>
@@ -683,15 +683,15 @@ function DashboardGuru() {
       <DemoNotice />
 
       {/* Stats Cards untuk Guru */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {/* Total Kelas */}
-        <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+        <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300"></div>
-          <div className="relative p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+          <div className="relative p-5 sm:p-6">
+            <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14">
                 <svg
-                  className="w-7 h-7 text-white"
+                  className="h-6 w-6 text-white sm:h-7 sm:w-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -704,16 +704,16 @@ function DashboardGuru() {
                   />
                 </svg>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-left sm:text-right">
+                <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                   Total Kelas
                 </p>
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl mt-1">
                   6
                 </h3>
               </div>
             </div>
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+            <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left dark:border-gray-700 sm:flex-row sm:items-center sm:justify-between">
               <span className="text-xs text-gray-500 dark:text-gray-400">
                 240 Total Siswa
               </span>
@@ -725,13 +725,13 @@ function DashboardGuru() {
         </div>
 
         {/* Tugas Perlu Dinilai */}
-        <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+        <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300"></div>
-          <div className="relative p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+          <div className="relative p-5 sm:p-6">
+            <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14">
                 <svg
-                  className="w-7 h-7 text-white"
+                  className="h-6 w-6 text-white sm:h-7 sm:w-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -744,16 +744,16 @@ function DashboardGuru() {
                   />
                 </svg>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-left sm:text-right">
+                <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                   Perlu Dinilai
                 </p>
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl mt-1">
                   23
                 </h3>
               </div>
             </div>
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+            <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left dark:border-gray-700 sm:flex-row sm:items-center sm:justify-between">
               <span className="text-xs text-gray-500 dark:text-gray-400">
                 Tugas Masuk
               </span>
@@ -765,13 +765,13 @@ function DashboardGuru() {
         </div>
 
         {/* RPP Generated */}
-        <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+        <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300"></div>
-          <div className="relative p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+          <div className="relative p-5 sm:p-6">
+            <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14">
                 <svg
-                  className="w-7 h-7 text-white"
+                  className="h-6 w-6 text-white sm:h-7 sm:w-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -784,16 +784,16 @@ function DashboardGuru() {
                   />
                 </svg>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-left sm:text-right">
+                <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                   RPP AI
                 </p>
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl mt-1">
                   45
                 </h3>
               </div>
             </div>
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+            <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left dark:border-gray-700 sm:flex-row sm:items-center sm:justify-between">
               <span className="text-xs text-gray-500 dark:text-gray-400">
                 Bulan Ini
               </span>
@@ -805,13 +805,13 @@ function DashboardGuru() {
         </div>
 
         {/* Rata-rata Kelas */}
-        <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+        <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300"></div>
-          <div className="relative p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+          <div className="relative p-5 sm:p-6">
+            <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14">
                 <svg
-                  className="w-7 h-7 text-white"
+                  className="h-6 w-6 text-white sm:h-7 sm:w-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -824,16 +824,16 @@ function DashboardGuru() {
                   />
                 </svg>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-left sm:text-right">
+                <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                   Rata-rata
                 </p>
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl mt-1">
                   83.2
                 </h3>
               </div>
             </div>
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+            <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left dark:border-gray-700 sm:flex-row sm:items-center sm:justify-between">
               <span className="text-xs text-gray-500 dark:text-gray-400">
                 Semua Kelas
               </span>
@@ -859,33 +859,33 @@ function DashboardGuru() {
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Bar Chart - Nilai per Kelas */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Perbandingan Nilai per Kelas
           </h3>
-          <div style={{ height: "300px" }}>
+          <div className="h-60 sm:h-72 lg:h-80">
             <Bar data={nilaiPerKelasData} options={chartOptions} />
           </div>
         </div>
 
         {/* Line Chart - Trend Kehadiran */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Trend Kehadiran Siswa (Bulan Ini)
           </h3>
-          <div style={{ height: "300px" }}>
+          <div className="h-60 sm:h-72 lg:h-80">
             <Line data={kehadiranTrendData} options={chartOptions} />
           </div>
         </div>
       </div>
 
       {/* Tables Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Tugas Perlu Dinilai */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Tugas Perlu Dinilai
           </h3>
           <div className="overflow-x-auto">
@@ -977,8 +977,8 @@ function DashboardGuru() {
         </div>
 
         {/* Siswa Perlu Perhatian */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Siswa Perlu Perhatian
           </h3>
           <div className="space-y-3">
@@ -1016,7 +1016,7 @@ function DashboardGuru() {
                 key={index}
                 className="p-4 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-md transition-shadow"
               >
-                <div className="flex items-center justify-between mb-2">
+                <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <h4 className="text-sm font-semibold text-gray-800 dark:text-white">
                       {siswa.nama}
@@ -1037,8 +1037,8 @@ function DashboardGuru() {
                     {siswa.nilai}
                   </span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-xs text-gray-600 dark:text-gray-400 sm:text-sm">
                     {siswa.masalah}
                   </p>
                   <button className="text-xs text-blue-500 hover:text-blue-600 font-medium">
@@ -1052,7 +1052,7 @@ function DashboardGuru() {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <button className="p-4 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-xl hover:shadow-lg transition-all flex items-center gap-3">
           <svg
             className="w-6 h-6"
@@ -1106,10 +1106,10 @@ function DashboardGuru() {
       {/* AI Tips */}
       <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16"></div>
-        <div className="relative p-8 flex items-start gap-6">
+        <div className="relative p-6 sm:p-8 flex items-start gap-6">
           <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
             <svg
-              className="w-8 h-8 text-white"
+              className="h-7 w-7 text-white sm:h-8 sm:w-8"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -1352,14 +1352,14 @@ function DashboardWaliKelas() {
   ];
 
   return (
-    <div>
-      <div className="mb-8 relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+    <div className="space-y-8">
+      <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg dark:bg-gray-800">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16" />
-        <div className="relative p-8">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+        <div className="relative p-6 sm:p-8">
+          <div className="mb-6 flex flex-col gap-4 sm:mb-4 sm:flex-row sm:items-center sm:gap-6">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-16 sm:w-16">
               <svg
-                className="w-8 h-8 text-white"
+                className="h-7 w-7 text-white sm:h-8 sm:w-8"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1373,10 +1373,10 @@ function DashboardWaliKelas() {
               </svg>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+              <h1 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
                 Dashboard Wali Kelas
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 mt-1">
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-300 sm:text-base">
                 Monitor keseharian kelas dan kolaborasi orang tua
               </p>
             </div>
@@ -1386,28 +1386,28 @@ function DashboardWaliKelas() {
 
       <DemoNotice />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {statCards.map((card) => (
           <div
             key={card.title}
-            className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+            className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300" />
-            <div className="relative p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg text-2xl">
+            <div className="relative p-5 sm:p-6">
+              <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14 text-2xl">
                   {card.icon}
                 </div>
-                <div className="text-right">
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-left sm:text-right">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                     {card.title}
                   </p>
-                  <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl mt-1">
                     {card.value}
                   </h3>
                 </div>
               </div>
-              <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+              <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left dark:border-gray-700 sm:flex-row sm:items-center sm:justify-between">
                 <span className="text-xs text-gray-500 dark:text-gray-400">
                   {card.caption}
                 </span>
@@ -1425,40 +1425,40 @@ function DashboardWaliKelas() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Rekap Kehadiran Kelas
           </h3>
-          <div style={{ height: "320px" }}>
+          <div className="h-64 sm:h-80 lg:h-[20rem]">
             <Bar data={kehadiranKelasData} options={chartOptions} />
           </div>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Skor Kesehatan Kelas
           </h3>
-          <div style={{ height: "320px" }}>
+          <div className="h-64 sm:h-80 lg:h-[20rem]">
             <Radar data={kesehatanKelasData} options={radarOptions} />
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl">
               Aktivitas Komunikasi Orang Tua
             </h3>
             <span className="text-xs font-semibold text-blue-500 bg-blue-100/80 dark:bg-blue-500/10 dark:text-blue-300 px-3 py-1 rounded-full">
               Realtime
             </span>
           </div>
-          <div style={{ height: "280px" }}>
+          <div className="h-56 sm:h-64 lg:h-72">
             <Line data={komunikasiOrtuData} options={chartOptions} />
           </div>
-          <div className="grid grid-cols-2 gap-3 mt-4 text-sm text-gray-600 dark:text-gray-300">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mt-4 text-sm text-gray-600 dark:text-gray-300">
             <div className="rounded-xl bg-gray-50 dark:bg-gray-900/40 px-4 py-3">
               <p className="font-semibold text-gray-800 dark:text-white">
                 Topik Terbanyak
@@ -1474,8 +1474,8 @@ function DashboardWaliKelas() {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Agenda & Follow-up Pekan Ini
           </h3>
           <div className="space-y-4">
@@ -1484,8 +1484,8 @@ function DashboardWaliKelas() {
                 key={agenda.title}
                 className="rounded-2xl border border-gray-100 dark:border-gray-700 px-4 py-4 hover:shadow-md transition-shadow"
               >
-                <div className="flex items-center justify-between">
-                  <h4 className="font-semibold text-gray-800 dark:text-white">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <h4 className="text-sm font-semibold text-gray-800 dark:text-white sm:text-base">
                     {agenda.title}
                   </h4>
                   <span className="text-xs font-semibold text-emerald-500 bg-emerald-100/70 dark:bg-emerald-500/10 dark:text-emerald-300 px-3 py-1 rounded-full">
@@ -1504,10 +1504,10 @@ function DashboardWaliKelas() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl">
               Siswa Butuh Perhatian
             </h3>
             <button className="text-sm text-blue-500 hover:text-blue-600 font-medium">
@@ -1520,7 +1520,7 @@ function DashboardWaliKelas() {
                 key={siswa.name}
                 className="rounded-2xl border border-gray-100 dark:border-gray-700 px-4 py-4 hover:shadow-md transition-shadow"
               >
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <h4 className="text-sm font-semibold text-gray-800 dark:text-white">
                       {siswa.name}
@@ -1544,11 +1544,11 @@ function DashboardWaliKelas() {
                 <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
                   {siswa.concern}
                 </p>
-                <div className="mt-3 flex items-center justify-between">
-                  <button className="text-xs text-blue-500 hover:text-blue-600 font-medium">
+                <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <button className="text-xs text-blue-500 hover:text-blue-600 font-medium sm:text-sm">
                     Rencana Intervensi
                   </button>
-                  <button className="text-xs text-emerald-500 hover:text-emerald-600 font-medium">
+                  <button className="text-xs text-emerald-500 hover:text-emerald-600 font-medium sm:text-sm">
                     Hubungi Orang Tua
                   </button>
                 </div>
@@ -1557,8 +1557,8 @@ function DashboardWaliKelas() {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Update Terakhir dari Orang Tua
           </h3>
           <div className="space-y-4">
@@ -1567,7 +1567,7 @@ function DashboardWaliKelas() {
                 key={update.parent}
                 className="rounded-2xl bg-gray-50 dark:bg-gray-900/40 px-4 py-3"
               >
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-semibold text-gray-800 dark:text-white">
                       {update.parent}
@@ -1586,7 +1586,7 @@ function DashboardWaliKelas() {
               </div>
             ))}
           </div>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
             <button className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-green-400 to-blue-500 text-white py-3 text-sm font-semibold hover:-translate-y-0.5 transition-transform shadow-lg">
               📊 Laporan Singkat
             </button>
@@ -1770,14 +1770,14 @@ function DashboardKepalaSekolah() {
   ];
 
   return (
-    <div>
-      <div className="mb-8 relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+    <div className="space-y-8">
+      <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg dark:bg-gray-800">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16" />
-        <div className="relative p-8">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+        <div className="relative p-6 sm:p-8">
+          <div className="mb-6 flex flex-col gap-4 sm:mb-4 sm:flex-row sm:items-center sm:gap-6">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-16 sm:w-16">
               <svg
-                className="w-8 h-8 text-white"
+                className="h-7 w-7 text-white sm:h-8 sm:w-8"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1791,10 +1791,10 @@ function DashboardKepalaSekolah() {
               </svg>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+              <h1 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
                 Dashboard Kepala Sekolah
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 mt-1">
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-300 sm:text-base">
                 Gambaran makro performa sekolah & transformasi AI
               </p>
             </div>
@@ -1804,28 +1804,28 @@ function DashboardKepalaSekolah() {
 
       <DemoNotice />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {indikatorSekolah.map((item) => (
           <div
             key={item.title}
-            className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+            className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300" />
-            <div className="relative p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg text-2xl">
+            <div className="relative p-5 sm:p-6">
+              <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14 text-2xl">
                   {item.icon}
                 </div>
-                <div className="text-right">
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-left sm:text-right">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                     {item.title}
                   </p>
-                  <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl mt-1">
                     {item.value}
                   </h3>
                 </div>
               </div>
-              <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+              <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left dark:border-gray-700 sm:flex-row sm:items-center sm:justify-between">
                 <span className="text-xs text-gray-500 dark:text-gray-400">
                   {item.caption}
                 </span>
@@ -1843,28 +1843,28 @@ function DashboardKepalaSekolah() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Performa Akademik & Kehadiran
           </h3>
-          <div style={{ height: "320px" }}>
+          <div className="h-64 sm:h-80 lg:h-[20rem]">
             <Line data={performaAkademikData} options={chartOptions} />
           </div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Alokasi Anggaran Transformasi
           </h3>
-          <div style={{ height: "320px" }}>
+          <div className="h-64 sm:h-80 lg:h-[20rem]">
             <Doughnut data={alokasiAnggaranData} options={chartOptions} />
           </div>
           <div className="mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-300">
-            <p className="flex items-center justify-between">
+            <p className="flex flex-wrap items-center justify-between gap-2">
               <span>Penyerapan anggaran</span>
               <span className="font-semibold text-emerald-500">72%</span>
             </p>
-            <p className="flex items-center justify-between">
+            <p className="flex flex-wrap items-center justify-between gap-2">
               <span>Budget tersisa</span>
               <span className="font-semibold text-blue-500">28%</span>
             </p>
@@ -1872,15 +1872,15 @@ function DashboardKepalaSekolah() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Pemanfaatan Program AI
           </h3>
-          <div style={{ height: "280px" }}>
+          <div className="h-56 sm:h-64 lg:h-72">
             <Bar data={pemanfaatanProgramData} options={chartOptions} />
           </div>
-          <div className="mt-5 grid grid-cols-2 gap-3 text-sm text-gray-600 dark:text-gray-300">
+          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 text-sm text-gray-600 dark:text-gray-300">
             <div className="rounded-xl bg-gray-50 dark:bg-gray-900/40 px-4 py-3">
               <p className="font-semibold text-gray-800 dark:text-white">
                 Program Terpopuler
@@ -1896,8 +1896,8 @@ function DashboardKepalaSekolah() {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Agenda Strategis
           </h3>
           <div className="space-y-4">
@@ -1906,7 +1906,7 @@ function DashboardKepalaSekolah() {
                 key={agenda.title}
                 className="rounded-2xl border border-gray-100 dark:border-gray-700 px-4 py-4 hover:shadow-md transition-shadow"
               >
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <h4 className="font-semibold text-gray-800 dark:text-white">
                       {agenda.title}
@@ -1938,9 +1938,9 @@ function DashboardKepalaSekolah() {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+        <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl">
             Alert & Insight Penting
           </h3>
           <button className="text-sm text-blue-500 hover:text-blue-600 font-medium">
@@ -2157,14 +2157,14 @@ function DashboardOrangTua() {
   ];
 
   return (
-    <div>
-      <div className="mb-8 relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+    <div className="space-y-8">
+      <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg dark:bg-gray-800">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16" />
-        <div className="relative p-8">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+        <div className="relative p-6 sm:p-8">
+          <div className="mb-6 flex flex-col gap-4 sm:mb-4 sm:flex-row sm:items-center sm:gap-6">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-16 sm:w-16">
               <svg
-                className="w-8 h-8 text-white"
+                className="h-7 w-7 text-white sm:h-8 sm:w-8"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -2178,10 +2178,10 @@ function DashboardOrangTua() {
               </svg>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+              <h1 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
                 Dashboard Orang Tua
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 mt-1">
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-300 sm:text-base">
                 Pantau progres belajar anak dan dukung perjalanan akademiknya
               </p>
             </div>
@@ -2191,28 +2191,28 @@ function DashboardOrangTua() {
 
       <DemoNotice />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {statCards.map((card) => (
           <div
             key={card.title}
-            className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+            className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 opacity-10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-300" />
-            <div className="relative p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg text-2xl">
+            <div className="relative p-5 sm:p-6">
+              <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-blue-500 shadow-lg sm:h-14 sm:w-14 text-2xl">
                   {card.icon}
                 </div>
-                <div className="text-right">
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-left sm:text-right">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                     {card.title}
                   </p>
-                  <h3 className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl mt-1">
                     {card.value}
                   </h3>
                 </div>
               </div>
-              <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+              <div className="flex flex-col gap-2 border-t border-gray-100 pt-4 text-left dark:border-gray-700 sm:flex-row sm:items-center sm:justify-between">
                 <span className="text-xs text-gray-500 dark:text-gray-400">
                   {card.caption}
                 </span>
@@ -2225,28 +2225,28 @@ function DashboardOrangTua() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Perkembangan Nilai Semester Ini
           </h3>
-          <div style={{ height: "320px" }}>
+          <div className="h-64 sm:h-80 lg:h-[20rem]">
             <Line data={perkembanganNilaiData} options={chartOptions} />
           </div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Pembagian Waktu Mingguan
           </h3>
-          <div style={{ height: "320px" }}>
+          <div className="h-64 sm:h-80 lg:h-[20rem]">
             <Doughnut data={pembagianWaktuData} options={chartOptions} />
           </div>
-          <div className="mt-6 text-sm text-gray-600 dark:text-gray-300 space-y-2">
-            <p className="flex items-center justify-between">
+          <div className="mt-6 space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <p className="flex flex-wrap items-center justify-between gap-2">
               <span>Fokus Belajar Mandiri</span>
               <span className="font-semibold text-emerald-500">35%</span>
             </p>
-            <p className="flex items-center justify-between">
+            <p className="flex flex-wrap items-center justify-between gap-2">
               <span>Ekstrakurikuler</span>
               <span className="font-semibold text-pink-500">20%</span>
             </p>
@@ -2254,10 +2254,10 @@ function DashboardOrangTua() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl">
               Jadwal & Agenda Pekan Ini
             </h3>
             <button className="text-sm text-blue-500 hover:text-blue-600 font-medium">
@@ -2268,9 +2268,9 @@ function DashboardOrangTua() {
             {jadwalPekanIni.map((item) => (
               <div
                 key={item.kegiatan}
-                className="rounded-2xl border border-gray-100 dark:border-gray-700 px-4 py-4 flex flex-col gap-2 hover:shadow-md transition-shadow"
+                className="rounded-2xl border border-gray-100 dark:border-gray-700 px-4 py-4 flex flex-col gap-3 hover:shadow-md transition-shadow"
               >
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-semibold text-gray-800 dark:text-white">
                       {item.kegiatan}
@@ -2293,8 +2293,8 @@ function DashboardOrangTua() {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Insight Anak dari AI Mentor
           </h3>
           <div className="space-y-4">
@@ -2315,7 +2315,7 @@ function DashboardOrangTua() {
               </div>
             ))}
           </div>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
             <button className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-green-400 to-blue-500 text-white py-3 text-sm font-semibold hover:-translate-y-0.5 transition-transform shadow-lg">
               📚 Rekomendasi Materi
             </button>
@@ -2326,10 +2326,10 @@ function DashboardOrangTua() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl">
               Progress Tugas & Proyek
             </h3>
             <button className="text-sm text-blue-500 hover:text-blue-600 font-medium">
@@ -2340,7 +2340,7 @@ function DashboardOrangTua() {
             {trackTugas.map((tugas) => (
               <div
                 key={tugas.judul}
-                className="rounded-2xl border border-gray-100 dark:border-gray-700 px-4 py-4 flex items-center justify-between hover:shadow-md transition-shadow"
+                className="rounded-2xl border border-gray-100 dark:border-gray-700 px-4 py-4 flex flex-col gap-3 hover:shadow-md transition-shadow sm:flex-row sm:items-center sm:justify-between"
               >
                 <div>
                   <p className="text-sm font-semibold text-gray-800 dark:text-white">
@@ -2358,8 +2358,8 @@ function DashboardOrangTua() {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white sm:text-xl mb-4">
             Tips Kolaborasi Keluarga
           </h3>
           <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300">

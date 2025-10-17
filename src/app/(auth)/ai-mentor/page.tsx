@@ -49,7 +49,10 @@ const conversationAtom = atom<Message[]>(initialMessages);
 const quickPromptAtom = atom((get) => {
   const focus = get(focusAtom);
 
-  const promptByFocus: Record<FocusArea, { id: string; label: string; studentText: string }[]> = {
+  const promptByFocus: Record<
+    FocusArea,
+    { id: string; label: string; studentText: string }[]
+  > = {
     Matematika: [
       {
         id: "ringkasan",
@@ -119,7 +122,8 @@ const recommendationsAtom = atom((get) => {
       },
       {
         title: "Latihan Identitas",
-        description: "6 soal adaptif yang menyesuaikan kesulitan secara real-time.",
+        description:
+          "6 soal adaptif yang menyesuaikan kesulitan secara real-time.",
         progress: 45,
         vibe: "from-emerald-500 to-teal-500",
       },
@@ -181,7 +185,10 @@ const conversationResponderAtom = atom(null, (get, set, promptId: string) => {
   const chosenPrompt = quickPrompts.find((item) => item.id === promptId);
   if (!chosenPrompt) return;
 
-  const responseTemplates: Record<FocusArea, Record<string, Omit<Message, "id">>> = {
+  const responseTemplates: Record<
+    FocusArea,
+    Record<string, Omit<Message, "id">>
+  > = {
     Matematika: {
       ringkasan: {
         from: "mentor",
@@ -303,7 +310,8 @@ export default function AiMentorPage() {
   }, [conversation]);
 
   const moodBadge = useMemo(() => {
-    if (mood.toLowerCase().includes("super")) return "bg-emerald-100 text-emerald-700";
+    if (mood.toLowerCase().includes("super"))
+      return "bg-emerald-100 text-emerald-700";
     if (mood.toLowerCase().includes("santai")) return "bg-sky-100 text-sky-700";
     return "bg-indigo-100 text-indigo-700";
   }, [mood]);
@@ -315,16 +323,26 @@ export default function AiMentorPage() {
         <div className="relative px-8 py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-white/80">AI Mentor · Mode Siswa</p>
-              <h1 className="mt-2 text-4xl font-extrabold drop-shadow-sm">Belajar Seru Bareng Mentor Pintar</h1>
+              <p className="text-sm uppercase tracking-[0.3em] text-white/80">
+                AI Mentor · Mode Siswa
+              </p>
+              <h1 className="mt-2 text-4xl font-extrabold drop-shadow-sm">
+                Belajar Seru Bareng Mentor Pintar
+              </h1>
               <p className="mt-3 max-w-2xl text-white/90">
-                Mentor memantau progresmu secara real-time dan menyiapkan latihan adaptif yang pas. Pilih fokus, tekan tombol, dan lihat AI Mentor bergerak.
+                Mentor memantau progresmu secara real-time dan menyiapkan
+                latihan adaptif yang pas. Pilih fokus, tekan tombol, dan lihat
+                AI Mentor bergerak.
               </p>
             </div>
             <div className="rounded-2xl bg-white/15 px-6 py-4 backdrop-blur-md">
-              <p className="text-sm font-semibold text-white/80">Energi Belajar</p>
+              <p className="text-sm font-semibold text-white/80">
+                Energi Belajar
+              </p>
               <p className="text-4xl font-bold">{energy}%</p>
-              <p className="text-xs text-white/75">Mengacu pada tidur, fokus, dan mood belajarmu hari ini.</p>
+              <p className="text-xs text-white/75">
+                Mengacu pada tidur, fokus, dan mood belajarmu hari ini.
+              </p>
             </div>
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-3 text-sm font-medium text-white/90">
@@ -336,7 +354,9 @@ export default function AiMentorPage() {
               <span className="text-lg">🔥</span>
               Streak {streak} hari berturut-turut
             </span>
-            <span className={`inline-flex items-center gap-2 rounded-full px-4 py-2 ${moodBadge}`}>
+            <span
+              className={`inline-flex items-center gap-2 rounded-full px-4 py-2 ${moodBadge}`}
+            >
               <span className="text-lg">🤖</span>
               {mood}
             </span>
@@ -349,8 +369,13 @@ export default function AiMentorPage() {
           <div className="rounded-3xl bg-white p-8 shadow-lg dark:bg-gray-800 dark:shadow-none">
             <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Pilih Fokus Belajar</h2>
-                <p className="text-gray-500 dark:text-gray-400">AI Mentor menyesuaikan rekomendasi dan gaya bantuannya sesuai topik yang kamu pilih.</p>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  Pilih Fokus Belajar
+                </h2>
+                <p className="text-gray-500 dark:text-gray-400">
+                  AI Mentor menyesuaikan rekomendasi dan gaya bantuannya sesuai
+                  topik yang kamu pilih.
+                </p>
               </div>
               <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300">
                 <span className="h-2 w-2 rounded-full bg-emerald-500" />
@@ -378,16 +403,25 @@ export default function AiMentorPage() {
           </div>
 
           <div className="rounded-3xl bg-white p-8 shadow-lg dark:bg-gray-800 dark:shadow-none">
-            <div className="mb-6 flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Chat Interaktif AI Mentor</h2>
-              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-300">{celebration}</span>
+            <div className="mb-6 space-y-2">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Chat Interaktif AI Mentor
+              </h2>
+              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-300">
+                {celebration}
+              </span>
             </div>
 
-            <div ref={chatContainerRef} className="relative max-h-[380px] space-y-4 overflow-y-auto pr-2">
+            <div
+              ref={chatContainerRef}
+              className="relative max-h-[380px] space-y-4 overflow-y-auto pr-2"
+            >
               {conversation.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex ${message.from === "mentor" ? "justify-start" : "justify-end"}`}
+                  className={`flex ${
+                    message.from === "mentor" ? "justify-start" : "justify-end"
+                  }`}
                 >
                   <div
                     className={`max-w-[75%] rounded-2xl px-5 py-4 text-sm shadow-md transition-transform duration-300 ${
@@ -397,7 +431,9 @@ export default function AiMentorPage() {
                     }`}
                   >
                     <div className="mb-1 flex items-center gap-2 text-xs opacity-80">
-                      <span>{message.from === "mentor" ? "AI Mentor" : "Kamu"}</span>
+                      <span>
+                        {message.from === "mentor" ? "AI Mentor" : "Kamu"}
+                      </span>
                       <span>•</span>
                       <span>{message.timestamp}</span>
                     </div>
@@ -408,7 +444,9 @@ export default function AiMentorPage() {
             </div>
 
             <div className="mt-6">
-              <p className="mb-3 text-sm font-semibold text-gray-600 dark:text-gray-400">Quick Action · Klik dan lihat respon AI Mentor</p>
+              <p className="mb-3 text-sm font-semibold text-gray-600 dark:text-gray-400">
+                Quick Action · Klik dan lihat respon AI Mentor
+              </p>
               <div className="flex flex-wrap gap-3">
                 {quickPrompts.map((prompt) => (
                   <button
@@ -430,12 +468,28 @@ export default function AiMentorPage() {
 
         <aside className="space-y-6">
           <div className="rounded-3xl bg-white p-6 shadow-lg dark:bg-gray-800 dark:shadow-none">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Progress Tracker</h2>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Update otomatis setiap kamu menyelesaikan misi harian.</p>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Progress Tracker
+            </h2>
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+              Update otomatis setiap kamu menyelesaikan misi harian.
+            </p>
             <div className="mt-6 space-y-5">
-              <ProgressItem label="Tantangan Harian" percent={82} accent="from-emerald-500 to-lime-500" />
-              <ProgressItem label="XP Mingguan" percent={68} accent="from-sky-500 to-indigo-500" />
-              <ProgressItem label="Mood Belajar" percent={energy} accent="from-amber-400 to-orange-500" />
+              <ProgressItem
+                label="Tantangan Harian"
+                percent={82}
+                accent="from-emerald-500 to-lime-500"
+              />
+              <ProgressItem
+                label="XP Mingguan"
+                percent={68}
+                accent="from-sky-500 to-indigo-500"
+              />
+              <ProgressItem
+                label="Mood Belajar"
+                percent={energy}
+                accent="from-amber-400 to-orange-500"
+              />
             </div>
             <button className="mt-6 w-full rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 py-3 text-sm font-semibold text-white shadow-lg transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-xl">
               Buka Insight Harian
@@ -443,24 +497,37 @@ export default function AiMentorPage() {
           </div>
 
           <div className="rounded-3xl bg-white p-6 shadow-lg dark:bg-gray-800 dark:shadow-none">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Misi Seru {focus}</h2>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">AI Mentor menyesuaikan misi sesuai performa dan mood-mu.</p>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Misi Seru {focus}
+            </h2>
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+              AI Mentor menyesuaikan misi sesuai performa dan mood-mu.
+            </p>
             <div className="mt-6 space-y-4">
               {recommendations.map((item, index) => (
                 <div
                   key={index}
                   className="relative overflow-hidden rounded-2xl border border-gray-100 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg dark:border-gray-700"
                 >
-                  <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${item.vibe}`} />
-                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">{item.title}</h3>
-                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{item.description}</p>
+                  <div
+                    className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${item.vibe}`}
+                  />
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                    {item.description}
+                  </p>
                   <div className="mt-4">
                     <div className="flex items-center justify-between text-xs font-semibold text-gray-500 dark:text-gray-400">
                       <span>Progress</span>
                       <span>{item.progress}%</span>
                     </div>
                     <div className="mt-2 h-2 rounded-full bg-gray-100 dark:bg-gray-800">
-                      <div className={`h-full rounded-full bg-gradient-to-r ${item.vibe}`} style={{ width: `${item.progress}%` }} />
+                      <div
+                        className={`h-full rounded-full bg-gradient-to-r ${item.vibe}`}
+                        style={{ width: `${item.progress}%` }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -469,8 +536,13 @@ export default function AiMentorPage() {
           </div>
 
           <div className="rounded-3xl bg-white p-6 shadow-lg dark:bg-gray-800 dark:shadow-none">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Mood Booster</h2>
-            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">AI Mentor siap kasih dukungan ekstra kalau kamu lagi butuh semangat.</p>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Mood Booster
+            </h2>
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+              AI Mentor siap kasih dukungan ekstra kalau kamu lagi butuh
+              semangat.
+            </p>
             <div className="mt-5 space-y-3 text-sm font-semibold text-gray-700 dark:text-gray-200">
               <MoodBoost label="Play playlist fokus 20 menit" emoji="🎧" />
               <MoodBoost label="Ambil jeda mindful 2 menit" emoji="🧘" />
@@ -499,7 +571,10 @@ function ProgressItem({
         <span>{percent}%</span>
       </div>
       <div className="mt-2 h-2 rounded-full bg-gray-100 dark:bg-gray-800">
-        <div className={`h-full rounded-full bg-gradient-to-r ${accent}`} style={{ width: `${percent}%` }} />
+        <div
+          className={`h-full rounded-full bg-gradient-to-r ${accent}`}
+          style={{ width: `${percent}%` }}
+        />
       </div>
     </div>
   );

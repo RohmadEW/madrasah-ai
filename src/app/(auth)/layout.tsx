@@ -261,7 +261,7 @@ export default function AuthLayout({
   const navigationItems = getNavigationByRole();
 
   return (
-    <div className="min-h-screen bg-base-200 flex">
+    <div className="flex h-screen min-h-screen bg-base-200 overflow-hidden">
       {/* Sidebar */}
       <aside
         className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-[#2c3e50] text-white transform transition-transform duration-300 ease-in-out ${
@@ -371,7 +371,7 @@ export default function AuthLayout({
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col h-screen">
+      <div className="flex flex-1 flex-col h-screen overflow-hidden">
         {/* Header */}
         <header className="bg-[#34495e] text-white shadow-lg z-40 flex-shrink-0">
           <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6 py-3">
@@ -515,7 +515,9 @@ export default function AuthLayout({
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 p-6 overflow-y-auto">{children}</main>
+        <main className="flex-1 overflow-x-hidden overflow-y-auto p-6">
+          {children}
+        </main>
       </div>
 
       {/* Mobile Sidebar Overlay */}
