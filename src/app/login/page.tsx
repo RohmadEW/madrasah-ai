@@ -74,6 +74,8 @@ export default function LoginPage() {
             </p>
           </div>
 
+          <DemoNotice />
+
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Role Selection */}
             <div>
@@ -217,6 +219,39 @@ export default function LoginPage() {
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function DemoNotice() {
+  return (
+    <div className="mb-8 rounded-2xl bg-gradient-to-br from-green-400 to-blue-500 p-[1px] shadow-md">
+      <div className="rounded-2xl bg-white/95 p-4 text-sm text-emerald-900 shadow-inner backdrop-blur dark:bg-emerald-950/40 dark:text-emerald-50">
+        Aplikasi ini merupakan demo. Untuk implementasi atau penggunaan, silakan
+        hubungi{" "}
+        <a
+          href="https://wa.me/6281393480510"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 font-semibold text-emerald-700 underline decoration-emerald-500 decoration-2 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-200 dark:hover:text-emerald-100"
+        >
+          <span
+            aria-hidden="true"
+            className="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-white shadow"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-3.5 w-3.5"
+            >
+              <path d="M12.04 2a9.95 9.95 0 00-8.5 15.16L2.2 22l5.05-1.32A9.95 9.95 0 0012.05 22C17.55 22 22 17.55 22 12.05 22 6.55 17.54 2 12.04 2zm0 17.96a7.96 7.96 0 01-4.07-1.1l-.29-.17-3 .79.8-2.92-.19-.3a7.96 7.96 0 1112.31-2.08 7.94 7.94 0 01-5.56 5.78zm4.36-5.95c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.95-1.23-.72-.64-1.21-1.42-1.35-1.66-.14-.24-.02-.37.11-.49.12-.12.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.4-.54-.4-.14 0-.3-.02-.46-.02-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.04.4 1.4.52.59.19 1.13.16 1.56.1.48-.07 1.43-.58 1.63-1.13.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28z" />
+            </svg>
+          </span>
+          WA 6281393480510
+        </a>
+        .
       </div>
     </div>
   );
