@@ -1,7 +1,7 @@
 "use client";
 
 import { useAtom, useSetAtom } from "jotai";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { isAuthenticatedAtom, userAtom } from "@/store/auth";
 import { useState } from "react";
 
@@ -15,6 +15,7 @@ export default function AuthLayout({
   const setIsAuthenticated = useSetAtom(isAuthenticatedAtom);
   const setUser = useSetAtom(userAtom);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const pathname = usePathname();
 
   const handleLogout = () => {
     setIsAuthenticated(false);
@@ -302,34 +303,40 @@ export default function AuthLayout({
                 {section.title}
               </h4>
               <ul className="space-y-1">
-                {section.items.map((item, itemIdx) => (
-                  <li key={itemIdx}>
-                    <a
-                      href={item.href}
-                      className={`flex items-center gap-3 px-6 py-2.5 transition-colors ${
-                        item.active
-                          ? "bg-[#34495e] border-l-4 border-green-400"
-                          : "hover:bg-[#34495e]"
-                      }`}
-                    >
-                      <span className="text-lg">{item.icon}</span>
-                      <span className="text-sm">{item.name}</span>
-                      <svg
-                        className="w-4 h-4 ml-auto"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                {section.items.map((item, itemIdx) => {
+                  const isActive =
+                    pathname === item.href ||
+                    pathname.startsWith(`${item.href}/`);
+                  return (
+                    <li key={itemIdx}>
+                      <a
+                        href={item.href}
+                        aria-current={isActive ? "page" : undefined}
+                        className={`flex items-center gap-3 px-6 py-2.5 transition-colors ${
+                          isActive
+                            ? "bg-[#34495e] border-l-4 border-green-400"
+                            : "hover:bg-[#34495e]"
+                        }`}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </a>
-                  </li>
-                ))}
+                        <span className="text-lg">{item.icon}</span>
+                        <span className="text-sm">{item.name}</span>
+                        <svg
+                          className="w-4 h-4 ml-auto"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
