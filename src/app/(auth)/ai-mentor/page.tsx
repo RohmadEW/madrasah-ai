@@ -320,42 +320,42 @@ export default function AiMentorPage() {
     <div className="space-y-8">
       <header className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 via-cyan-500 to-blue-600 text-white shadow-lg">
         <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(circle_at_center,white,transparent_70%)]"></div>
-        <div className="relative px-8 py-10">
-          <div className="flex flex-wrap items-center justify-between gap-6">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-white/80">
+        <div className="relative p-6 sm:p-8 lg:p-10">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="text-left">
+              <p className="text-xs uppercase tracking-[0.3em] text-white/80 sm:text-sm">
                 AI Mentor · Mode Siswa
               </p>
-              <h1 className="mt-2 text-4xl font-extrabold drop-shadow-sm">
+              <h1 className="mt-2 text-3xl font-extrabold drop-shadow-sm sm:text-4xl">
                 Belajar Seru Bareng Mentor Pintar
               </h1>
-              <p className="mt-3 max-w-2xl text-white/90">
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/90 sm:text-base">
                 Mentor memantau progresmu secara real-time dan menyiapkan
                 latihan adaptif yang pas. Pilih fokus, tekan tombol, dan lihat
                 AI Mentor bergerak.
               </p>
             </div>
-            <div className="rounded-2xl bg-white/15 px-6 py-4 backdrop-blur-md">
-              <p className="text-sm font-semibold text-white/80">
+            <div className="w-full rounded-2xl bg-white/15 px-5 py-4 backdrop-blur-md sm:px-6 lg:w-auto">
+              <p className="text-xs font-semibold text-white/80 sm:text-sm">
                 Energi Belajar
               </p>
-              <p className="text-4xl font-bold">{energy}%</p>
-              <p className="text-xs text-white/75">
+              <p className="text-3xl font-bold sm:text-4xl">{energy}%</p>
+              <p className="text-xs text-white/75 sm:text-sm">
                 Mengacu pada tidur, fokus, dan mood belajarmu hari ini.
               </p>
             </div>
           </div>
-          <div className="mt-8 flex flex-wrap items-center gap-3 text-sm font-medium text-white/90">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2">
+          <div className="mt-6 flex flex-col gap-3 text-sm font-medium text-white/90 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 lg:mt-8">
+            <span className="inline-flex w-full items-center gap-2 rounded-full bg-white/20 px-4 py-2 sm:w-auto">
               <span className="inline-flex h-2 w-2 rounded-full bg-emerald-300 animate-pulse" />
               {journey}
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2">
+            <span className="inline-flex w-full items-center gap-2 rounded-full bg-white/20 px-4 py-2 sm:w-auto">
               <span className="text-lg">🔥</span>
               Streak {streak} hari berturut-turut
             </span>
             <span
-              className={`inline-flex items-center gap-2 rounded-full px-4 py-2 ${moodBadge}`}
+              className={`inline-flex w-full items-center gap-2 rounded-full px-4 py-2 sm:w-auto ${moodBadge}`}
             >
               <span className="text-lg">🤖</span>
               {mood}
@@ -364,20 +364,20 @@ export default function AiMentorPage() {
         </div>
       </header>
 
-      <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        <div className="col-span-2 space-y-6">
-          <div className="rounded-3xl bg-white p-8 shadow-lg dark:bg-gray-800 dark:shadow-none">
-            <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+      <section className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+        <div className="space-y-6 lg:col-span-2">
+          <div className="rounded-3xl bg-white p-5 shadow-lg dark:bg-gray-800 dark:shadow-none sm:p-6 lg:p-8">
+            <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="text-left">
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">
                   Pilih Fokus Belajar
                 </h2>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-gray-500 dark:text-gray-400 sm:text-base">
                   AI Mentor menyesuaikan rekomendasi dan gaya bantuannya sesuai
                   topik yang kamu pilih.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300">
+              <span className="inline-flex items-center gap-2 self-start rounded-full bg-emerald-100 px-4 py-2 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300 sm:self-auto sm:text-sm">
                 <span className="h-2 w-2 rounded-full bg-emerald-500" />
                 Fokus: {focus}
               </span>
@@ -387,7 +387,7 @@ export default function AiMentorPage() {
                 <button
                   key={area}
                   onClick={() => setFocus(area)}
-                  className={`relative overflow-hidden rounded-2xl px-6 py-3 text-sm font-semibold transition-all duration-300 ${
+                  className={`relative overflow-hidden rounded-2xl px-5 py-3 text-sm font-semibold transition-all duration-300 sm:px-6 ${
                     focus === area
                       ? "bg-gradient-to-br from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/30"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200"
@@ -402,19 +402,19 @@ export default function AiMentorPage() {
             </div>
           </div>
 
-          <div className="rounded-3xl bg-white p-8 shadow-lg dark:bg-gray-800 dark:shadow-none">
+          <div className="rounded-3xl bg-white p-5 shadow-lg dark:bg-gray-800 dark:shadow-none sm:p-6 lg:p-8">
             <div className="mb-6 space-y-2">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">
                 Chat Interaktif AI Mentor
               </h2>
-              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-300">
+              <span className="text-xs font-medium text-emerald-600 dark:text-emerald-300 sm:text-sm">
                 {celebration}
               </span>
             </div>
 
             <div
               ref={chatContainerRef}
-              className="relative max-h-[380px] space-y-4 overflow-y-auto pr-2"
+              className="relative max-h-[320px] space-y-4 overflow-y-auto pr-1 sm:max-h-[380px] sm:pr-2"
             >
               {conversation.map((message) => (
                 <div
@@ -424,7 +424,7 @@ export default function AiMentorPage() {
                   }`}
                 >
                   <div
-                    className={`max-w-[75%] rounded-2xl px-5 py-4 text-sm shadow-md transition-transform duration-300 ${
+                    className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm shadow-md transition-transform duration-300 sm:max-w-[75%] sm:px-5 sm:py-4 ${
                       message.from === "mentor"
                         ? "bg-gradient-to-br from-emerald-500 to-cyan-500 text-white"
                         : "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100"
@@ -467,11 +467,11 @@ export default function AiMentorPage() {
         </div>
 
         <aside className="space-y-6">
-          <div className="rounded-3xl bg-white p-6 shadow-lg dark:bg-gray-800 dark:shadow-none">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <div className="rounded-3xl bg-white p-5 shadow-lg dark:bg-gray-800 dark:shadow-none sm:p-6">
+            <h2 className="text-base font-semibold text-gray-900 dark:text-white sm:text-lg">
               Progress Tracker
             </h2>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mt-1 text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
               Update otomatis setiap kamu menyelesaikan misi harian.
             </p>
             <div className="mt-6 space-y-5">
@@ -496,11 +496,11 @@ export default function AiMentorPage() {
             </button>
           </div>
 
-          <div className="rounded-3xl bg-white p-6 shadow-lg dark:bg-gray-800 dark:shadow-none">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <div className="rounded-3xl bg-white p-5 shadow-lg dark:bg-gray-800 dark:shadow-none sm:p-6">
+            <h2 className="text-base font-semibold text-gray-900 dark:text-white sm:text-lg">
               Misi Seru {focus}
             </h2>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mt-1 text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
               AI Mentor menyesuaikan misi sesuai performa dan mood-mu.
             </p>
             <div className="mt-6 space-y-4">
@@ -512,10 +512,10 @@ export default function AiMentorPage() {
                   <div
                     className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${item.vibe}`}
                   />
-                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-sm font-semibold text-gray-900 dark:text-white sm:text-base">
                     {item.title}
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  <p className="mt-1 text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                     {item.description}
                   </p>
                   <div className="mt-4">
@@ -535,11 +535,11 @@ export default function AiMentorPage() {
             </div>
           </div>
 
-          <div className="rounded-3xl bg-white p-6 shadow-lg dark:bg-gray-800 dark:shadow-none">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <div className="rounded-3xl bg-white p-5 shadow-lg dark:bg-gray-800 dark:shadow-none sm:p-6">
+            <h2 className="text-base font-semibold text-gray-900 dark:text-white sm:text-lg">
               Mood Booster
             </h2>
-            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mt-2 text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
               AI Mentor siap kasih dukungan ekstra kalau kamu lagi butuh
               semangat.
             </p>
@@ -566,7 +566,7 @@ function ProgressItem({
 }) {
   return (
     <div>
-      <div className="flex items-center justify-between text-sm font-semibold text-gray-700 dark:text-gray-200">
+      <div className="flex items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200 sm:text-sm">
         <span>{label}</span>
         <span>{percent}%</span>
       </div>
@@ -582,12 +582,14 @@ function ProgressItem({
 
 function MoodBoost({ label, emoji }: { label: string; emoji: string }) {
   return (
-    <button className="flex w-full items-center justify-between rounded-2xl bg-gray-50 px-4 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700">
-      <span className="flex items-center gap-3">
+    <button className="flex w-full flex-col gap-2 rounded-2xl bg-gray-50 px-4 py-3 text-left transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 sm:flex-row sm:items-center sm:justify-between sm:text-left">
+      <span className="flex items-center gap-3 text-sm sm:text-base">
         <span className="text-xl">{emoji}</span>
         {label}
       </span>
-      <span className="text-xs font-semibold text-emerald-500">Aktifkan</span>
+      <span className="text-xs font-semibold text-emerald-500 sm:text-sm">
+        Aktifkan
+      </span>
     </button>
   );
 }
